@@ -41,6 +41,13 @@
       text-align: center;
       width: 100%;
       box-sizing: border-box;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Copied input styling */
+    input.copied {
+      background-color: green;
+      color: white;
     }
 
     /* Heading styling */
@@ -62,60 +69,71 @@
   <div class="container">
     <h1>Click to Copy Course Code</h1>
     
+    
+
+
+
+
+
+
+
+
+
+
     <!-- Input fields with course code and name as value, copy only the code -->
     <div class="input-container">
-      <input type="text" id="input1" data-code="CSE263.13" value="CSE263.13, Digital Logic Design" onclick="copyInput(this, 'msg1')" readonly>
+      <input type="text" id="input1" data-code="CSE 241.22" value="CSE 241.22" onclick="copyInput(this, 'msg1')" readonly>
       <span id="msg1" class="message"></span>
     </div>
     
     <div class="input-container">
-      <input type="text" id="input2" data-code="CSE264.12" value="CSE264.12, Digital Logic Design Lab" onclick="copyInput(this, 'msg2')" readonly>
+      <input type="text" id="input2" data-code="SOC 341.10" value="SOC 341.10" onclick="copyInput(this, 'msg2')" readonly>
       <span id="msg2" class="message"></span>
     </div>
     
     <div class="input-container">
-      <input type="text" id="input3" data-code="STA281.9" value="STA281.9, Statistical Methods & Probability" onclick="copyInput(this, 'msg3')" readonly>
+      <input type="text" id="input3" data-code="STA 281.9" value="STA 281.9" onclick="copyInput(this, 'msg3')" readonly>
       <span id="msg3" class="message"></span>
     </div>
     
     <div class="input-container">
-      <input type="text" id="input4" data-code="EEE181.11" value="EEE181.11, Electrical Circuits Design I" onclick="copyInput(this, 'msg4')" readonly>
+      <input type="text" id="input4" data-code="EEE 181.11" value="EEE 181.11" onclick="copyInput(this, 'msg4')" readonly>
       <span id="msg4" class="message"></span>
     </div>
     
     <div class="input-container">
-      <input type="text" id="input5" data-code="EEE182.13" value="EEE182.13, Electrical Circuits Design I Lab" onclick="copyInput(this, 'msg5')" readonly>
+      <input type="text" id="input5" data-code="EEE 182.13" value="EEE 182.13" onclick="copyInput(this, 'msg5')" readonly>
       <span id="msg5" class="message"></span>
     </div>
 
     <div class="input-container">
-      <input type="text" id="input6" data-code="CSE241.21" value="CSE241.21, Data Structures" onclick="copyInput(this, 'msg6')" readonly>
+      <input type="text" id="input6" data-code="CSE242.25" value="CSE242.25" onclick="copyInput(this, 'msg6')" readonly>
       <span id="msg6" class="message"></span>
-    </div>
-
-    <div class="input-container">
-      <input type="text" id="input7" data-code="CSE242.25" value="CSE242.25, Data Structures Lab" onclick="copyInput(this, 'msg7')" readonly>
-      <span id="msg7" class="message"></span>
     </div>
   </div>
 
   <script>
     function clearMessages() {
-      // Clear all "Copied!" messages
+      // Clear all "Copied!" messages and reset styles
       const messages = document.querySelectorAll('.message');
       messages.forEach(msg => msg.textContent = "");
+
+      // Remove "copied" class from all input elements
+      const inputs = document.querySelectorAll('input[type="text"]');
+      inputs.forEach(input => input.classList.remove('copied'));
     }
 
     function copyInput(element, messageId) {
-      // Clear any existing "Copied!" messages
+      // Clear any existing "Copied!" messages and styles
       clearMessages();
 
       // Get the course code from data attribute and copy it
       const courseCode = element.getAttribute("data-code");
       navigator.clipboard.writeText(courseCode);
       
-      // Display the "Copied!" message next to the clicked input
+      // Display the "Copied!" message and apply styling to the copied input
       document.getElementById(messageId).textContent = "Copied!";
+      element.classList.add('copied');
     }
   </script>
 
