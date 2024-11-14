@@ -1,150 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Copy Your Subjects</title>
-    <style>
-      /* Full-page center alignment */
-      body,
-      html {
-        height: 100%;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: Arial, sans-serif;
-      }
-      /* Center container styling */
-      .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      /* Styling for input containers */
-      .input-container {
-        display: flex;
-        align-items: center;
-        margin: 2px 0;
-      }
-      /* Input field styling */
-      input[type="text"] {
-        cursor: pointer;
-        padding: 10px;
-        font-size: 16px;
-        text-align: center;
-        width: 150px;
-      }
-      /* Message styling */
-      .message {
-        margin-left: 10px;
-        color: green;
-        font-weight: bold;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Click to Copy Input Value</h1>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copy Input Values</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+  <style>
+    /* Apply Exo font to the entire page */
+    body, html {
+      margin: 0;
+      font-family: "Exo", sans-serif;
+    }
 
-      <!-- Input fields with copy messages beside each one -->
-      <div class="input-container">
-        <input
-          type="text"
-          id="input1"
-          value="CSE263.13"
-          onclick="copyInput(this, 'msg1')"
-          readonly
-        />
-        <span id="msg1" class="message"></span>
-      </div>
+    /* Center container styling */
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto; /* Center horizontally */
+    }
 
-      <div class="input-container">
-        <input
-          type="text"
-          id="input2"
-          value="CSE264.12"
-          onclick="copyInput(this, 'msg2')"
-          readonly
-        />
-        <span id="msg2" class="message"></span>
-      </div>
+    /* Styling for input containers */
+    .input-container {
+      display: flex;
+      align-items: center;
+      margin: 2px 0;
+      width: 100%;
+    }
 
-      <div class="input-container">
-        <input
-          type="text"
-          id="input3"
-          value="STA281.9"
-          onclick="copyInput(this, 'msg3')"
-          readonly
-        />
-        <span id="msg3" class="message"></span>
-      </div>
+    /* Input field styling */
+    input[type="text"] {
+      cursor: pointer;
+      padding: 10px;
+      font-size: 16px;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
 
-      <div class="input-container">
-        <input
-          type="text"
-          id="input4"
-          value="EEE181.11"
-          onclick="copyInput(this, 'msg4')"
-          readonly
-        />
-        <span id="msg4" class="message"></span>
-      </div>
+    /* Heading styling */
+    h1 {
+      font-family: "Exo", sans-serif;
+    }
 
-      <div class="input-container">
-        <input
-          type="text"
-          id="input5"
-          value="EEE182.13"
-          onclick="copyInput(this, 'msg5')"
-          readonly
-        />
-        <span id="msg5" class="message"></span>
-      </div>
+    /* Message styling */
+    .message {
+      margin-left: 10px;
+      color: green;
+      font-weight: bold;
+      font-family: "Exo", sans-serif;
+    }
+  </style>
+</head>
+<body>
 
-      <div class="input-container">
-        <input
-          type="text"
-          id="input6"
-          value="CSE241.21"
-          onclick="copyInput(this, 'msg6')"
-          readonly
-        />
-        <span id="msg6" class="message"></span>
-      </div>
-
-      <div class="input-container">
-        <input
-          type="text"
-          id="input7"
-          value="CSE242.25"
-          onclick="copyInput(this, 'msg7')"
-          readonly
-        />
-        <span id="msg7" class="message"></span>
-      </div>
+  <div class="container">
+    <h1>Click to Copy Course Code</h1>
+    
+    <!-- Input fields with course code and name as value, copy only the code -->
+    <div class="input-container">
+      <input type="text" id="input1" data-code="CSE263.13" value="CSE263.13, Digital Logic Design" onclick="copyInput(this, 'msg1')" readonly>
+      <span id="msg1" class="message"></span>
+    </div>
+    
+    <div class="input-container">
+      <input type="text" id="input2" data-code="CSE264.12" value="CSE264.12, Digital Logic Design Lab" onclick="copyInput(this, 'msg2')" readonly>
+      <span id="msg2" class="message"></span>
+    </div>
+    
+    <div class="input-container">
+      <input type="text" id="input3" data-code="STA281.9" value="STA281.9, Statistical Methods & Probability" onclick="copyInput(this, 'msg3')" readonly>
+      <span id="msg3" class="message"></span>
+    </div>
+    
+    <div class="input-container">
+      <input type="text" id="input4" data-code="EEE181.11" value="EEE181.11, Electrical Circuits Design I" onclick="copyInput(this, 'msg4')" readonly>
+      <span id="msg4" class="message"></span>
+    </div>
+    
+    <div class="input-container">
+      <input type="text" id="input5" data-code="EEE182.13" value="EEE182.13, Electrical Circuits Design I Lab" onclick="copyInput(this, 'msg5')" readonly>
+      <span id="msg5" class="message"></span>
     </div>
 
-    <script>
-      function clearMessages() {
-        // Clear all "Copied!" messages
-        const messages = document.querySelectorAll(".message");
-        messages.forEach((msg) => (msg.textContent = ""));
-      }
+    <div class="input-container">
+      <input type="text" id="input6" data-code="CSE241.21" value="CSE241.21, Data Structures" onclick="copyInput(this, 'msg6')" readonly>
+      <span id="msg6" class="message"></span>
+    </div>
 
-      function copyInput(element, messageId) {
-        // Clear any existing "Copied!" messages
-        clearMessages();
+    <div class="input-container">
+      <input type="text" id="input7" data-code="CSE242.25" value="CSE242.25, Data Structures Lab" onclick="copyInput(this, 'msg7')" readonly>
+      <span id="msg7" class="message"></span>
+    </div>
+  </div>
 
-        // Select and copy the input value
-        element.select();
-        element.setSelectionRange(0, 99999); // For mobile devices
-        document.execCommand("copy");
+  <script>
+    function clearMessages() {
+      // Clear all "Copied!" messages
+      const messages = document.querySelectorAll('.message');
+      messages.forEach(msg => msg.textContent = "");
+    }
 
-        // Display the "Copied!" message next to the clicked input
-        document.getElementById(messageId).textContent = "Copied!";
-      }
-    </script>
-  </body>
+    function copyInput(element, messageId) {
+      // Clear any existing "Copied!" messages
+      clearMessages();
+
+      // Get the course code from data attribute and copy it
+      const courseCode = element.getAttribute("data-code");
+      navigator.clipboard.writeText(courseCode);
+      
+      // Display the "Copied!" message next to the clicked input
+      document.getElementById(messageId).textContent = "Copied!";
+    }
+  </script>
+
+</body>
 </html>
